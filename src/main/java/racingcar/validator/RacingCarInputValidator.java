@@ -4,10 +4,10 @@ import java.util.List;
 
 public class RacingCarInputValidator {
     public static void validateCarNames(List<String> carNames) {
-        if (carNames == null || carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 반드시 입력해야 합니다.");
-        }
         for (String carName : carNames) {
+            if(carName.isEmpty()) {
+                throw new IllegalArgumentException("자동차 이름은 반드시 입력해야 합니다.");
+            }
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
