@@ -12,8 +12,9 @@ public class InputView {
     public List<String> inputCarNames() {
         System.out.println(ViewMessages.PROMPT_CAR_NAMES);
         String carNames = scanner.nextLine();
-        RacingCarInputValidator.validateCarNames(carNames);
-        return splitCarNames(carNames);
+        List<String> splitCarNames = splitCarNames(carNames);
+        RacingCarInputValidator.validateCarNames(splitCarNames);
+        return splitCarNames;
     }
 
     private List<String> splitCarNames(String carNames) {
