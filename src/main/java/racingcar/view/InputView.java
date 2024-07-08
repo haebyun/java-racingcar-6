@@ -1,17 +1,15 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import racingcar.util.ViewMessages;
 import racingcar.validator.RacingCarInputValidator;
 
 public class InputView {
-    private static final Scanner scanner = new Scanner(System.in);
-
     public List<String> inputCarNames() {
         System.out.println(ViewMessages.PROMPT_CAR_NAMES);
-        String carNames = scanner.nextLine();
+        String carNames = Console.readLine();
         List<String> splitCarNames = splitCarNames(carNames);
         RacingCarInputValidator.validateCarNames(splitCarNames);
         return splitCarNames;
@@ -23,7 +21,7 @@ public class InputView {
 
     public int inputRaceCount() {
         System.out.println(ViewMessages.PROMPT_RACE_COUNT);
-        String count = scanner.nextLine();
+        String count = Console.readLine();
         System.out.println();
         RacingCarInputValidator.validateRaceCount(count);
         return Integer.parseInt(count);
